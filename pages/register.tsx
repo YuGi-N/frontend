@@ -87,7 +87,7 @@ const Register = () => {
                 router.push('/login');
             }
             else {
-                console.log('Failed to register user');
+                console.log('Failed to login user');
             }
         }
 
