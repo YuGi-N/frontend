@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import styles from '../styles/Register.module.css';
 
 interface InputValues {
     name: string,
@@ -84,7 +85,7 @@ const Register = () => {
             });
 
             if(req.ok) {
-                router.push('/login');
+                router.push('/');
             }
             else {
                 console.log('Failed to login user');
@@ -98,35 +99,35 @@ const Register = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <label>Name:</label>
-                <input type='text' placeholder='Name' name='name' onChange={handleChange} />
-                <label>{formErrors.nameError}</label>
+                <input className={styles.input} type='text' placeholder='Name' name='name' onChange={handleChange} />
+                <label className={styles.error}>{formErrors.nameError}</label>
 
                 <label>Email:</label>
-                <input type='text' placeholder='Email' name='email' onChange={handleChange} />
-                <label>{formErrors.emailError}</label>
+                <input className={styles.input} type='text' placeholder='Email' name='email' onChange={handleChange} />
+                <label className={styles.error}>{formErrors.emailError}</label>
 
                 <label>Password:</label>
-                <input type='password' placeholder='Password' name='password' onChange={handleChange} />
-                <label>{formErrors.passwordError}</label>
+                <input className={styles.input} type='password' placeholder='Password' name='password' onChange={handleChange} />
+                <label className={styles.error}>{formErrors.passwordError}</label>
 
                 <label>Mobile:</label>
-                <input type='text' placeholder='Mobile' name='mobile' onChange={handleChange} />
+                <input className={styles.input} type='text' placeholder='Mobile' name='mobile' onChange={handleChange} />
 
                 <label>Country:</label>
-                <input type='text' placeholder='Country' name='country' onChange={handleChange} />
+                <input className={styles.input} type='text' placeholder='Country' name='country' onChange={handleChange} />
 
                 <label>City:</label>
-                <input type='text' placeholder='City' name='city' onChange={handleChange} />
+                <input className={styles.input} type='text' placeholder='City' name='city' onChange={handleChange} />
 
                 <label>State:</label>
-                <input type='text' placeholder='State' name='state' onChange={handleChange}/>
+                <input className={styles.input} type='text' placeholder='State' name='state' onChange={handleChange}/>
 
                 <label>Message:</label>
-                <input type='text' placeholder='Message' name='message' onChange={handleChange}/>
+                <input className={styles.input} type='text' placeholder='Message' name='message' onChange={handleChange}/>
 
-                <button type='submit'>Sign up</button>
+                <button className={styles.button} type='submit'>Sign up</button>
 
             </form>
         </div>
