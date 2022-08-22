@@ -1,12 +1,13 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router';
+import styles from '../styles/App.module.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
  
   	return (
-		<Component {...pageProps} />
+		<div className={styles.wrapper}>
+			<Component {...pageProps} />
+		</div>
 	)
 }
 

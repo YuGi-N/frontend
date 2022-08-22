@@ -1,0 +1,45 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(58, 58, 58);
+    margin: 30px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.input {
+	width: 300px;
+	height: 35px;
+	border-radius: 3px;
+	border: none;
+	padding: 10px;
+	background-color: #404040;
+	color: inherit;
+}
+
+.input:focus {
+	background-color: #161616;
+}
+
+.cast {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.castinput {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.addfield {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(65, 147, 255);
+    border-radius: 3px;
+    cursor: pointer;
+    color: inherit;
+}
+

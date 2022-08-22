@@ -1,0 +1,26 @@
+.info {
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid rgb(58, 58, 58);
+}
+
+.deletebutton {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(252, 50, 50);
+    border-radius: 3px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.updatebutton {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(65, 147, 255);
+    border-radius: 3px;
+    cursor: pointer;
+    color: inherit;
+    margin-left: 10px;
+}

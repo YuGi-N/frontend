@@ -1,11 +1,13 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import Header from '../../../components/header';
+import styles from '../../../styles/Create.module.css';
 
 const Create = () => {
 
     const [name, setName] = useState('');
     const [rating, setRating] = useState(0);
-    const [cast, setCast] = useState(["test", "test"]);
+    const [cast, setCast] = useState([""]);
     const [genre, setGenre] = useState('');
     const [releaseDate, setReleaseDate] = useState('');
     const [isSubmit, setIsSubmit] = useState(false);
@@ -56,7 +58,7 @@ const Create = () => {
                     const data = await req.json();
                     setName(data.movieName);
                     setRating(data.rating);
-                    setCast(data.cast);
+                    setCast(data.cast ?? [""]);
                     setGenre(data.genre);
                     setDate(new Date(data.releaseDate));
                 }
@@ -92,35 +94,46 @@ const Create = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label>Name: </label>
-                <input type='text' value={name} onChange={e => setName(e.target.value)} />
-
-                <label>Rating: </label>
-                <input type='number'value={rating} onChange={e => setRating(e.target.valueAsNumber)} />
-
-                <label>Cast: </label>
+            <Header />
+            <form className={styles.form} onSubmit={handleSubmit}>
                 
-                {
-                    cast.map((element, index) => {
-                        return (
-                            <div key={index}>
-                                <input value={element} onChange={e => handleChange(e, index)} />
-                                <button onClick={e => removeField(index)}>-</button>
-                            </div>
-                        )
-                    })
-                }
-                <button onClick={e => addField()}>+</button>
-
+                <div>
+                    <label>Name: </label>
+                    <input className={styles.input} type='text' value={name} onChange={e => setName(e.target.value)} />
+                </div>
                 
-                <label>Genre: </label>
-                <input type='text' value={genre} onChange={e => setGenre(e.target.value)} />
+                <div>
+                    <label>Rating: </label>
+                    <input className={styles.input} type='number'value={rating} onChange={e => setRating(e.target.valueAsNumber)} />
+                </div>
 
-                <label>Release date: </label>
-                <input type='date' value={releaseDate} onChange={e => setReleaseDate(e.target.value)} />
+                <div className={styles.cast}>
+                    <label>Cast: </label>
+                    
+                    {
+                        cast.map((element, index) => {
+                            return (
+                                <div className={styles.castinput} key={index}>
+                                    <input className={styles.input} value={element} onChange={e => handleChange(e, index)} />
+                                    <button className={styles.addfield} onClick={e => removeField(index)}>-</button>
+                                </div>
+                            )
+                        })
+                    }
+                    <button className={styles.addfield} type='button' onClick={e => addField()}>+</button>
+                </div>
 
-                <button type='submit'>Submit</button>
+                <div>
+                    <label>Genre: </label>
+                    <input className={styles.input} type='text' value={genre} onChange={e => setGenre(e.target.value)} />
+                </div>
+                
+                <div>
+                    <label>Release date: </label>
+                    <input className={styles.input} type='date' value={releaseDate} onChange={e => setReleaseDate(e.target.value)} />
+                </div>
+
+                <button className={styles.addfield} type='submit'>Submit</button>
             </form>
         </div>
     )

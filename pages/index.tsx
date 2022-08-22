@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
+import styles from '../styles/Login.module.css';
 
 const Login = () => {
 
@@ -28,17 +29,11 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>Email</label>
-                <input type='text' name='email' value={email} onChange={e => setEmail(e.target.value)} />
-                <label>{}</label>
-
-                <label>Password</label>
-                <input type='text' name='password' value={password} onChange={e => setPassword(e.target.value)} />
-                <label>{}</label>
-
-                <button type='submit'>Login</button>
+        <div className={styles.wrapper}>
+            <form className={styles.flexform} onSubmit={handleSubmit}>
+                <input className={styles.input} type='text' name='email' value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' />
+                <input className={styles.input} type='password' name='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='Password' />
+                <button className={styles.loginbutton} type='submit'>Login</button>
             </form>
         </div>
     )

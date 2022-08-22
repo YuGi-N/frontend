@@ -1,0 +1,18 @@
+.moviegrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.createbutton {
+    margin: 10px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(65, 147, 255);
+    border-radius: 3px;
+    cursor: pointer;
+    color: inherit;
+    margin-left: 10px;
+}
